@@ -11,9 +11,6 @@ def puzzle_one():
         return total
 
 def puzzle_two(input, total, seen_numbers):
-
-    iteration += 1
-
     for x in input:
         total += long(x)
 
