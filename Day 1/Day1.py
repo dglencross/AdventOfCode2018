@@ -1,4 +1,5 @@
 import unittest
+import helpers.InputHelpers
 
 def puzzle_one():
     with open('input1.txt') as fp:
@@ -47,11 +48,6 @@ class Test_2(unittest.TestCase):
         self.assertEquals(14, puzzle_two(input, 0, [0]))
 
     def test_puzzle_two_is_ok(self):
-        input = []
-        with open('input1.txt') as fp:
-            line = fp.readline()
-            while line:
-                input.append(line)
-                line = fp.readline()
+        input = helpers.InputHelpers.read_input('input1.txt')
 
         self.assertEquals(390, puzzle_two(input, 0, [0]))
