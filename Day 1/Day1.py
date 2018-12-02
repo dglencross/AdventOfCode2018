@@ -1,15 +1,11 @@
 import unittest
 import helpers.InputHelpers
 
-def puzzle_one():
-    with open('input1.txt') as fp:
-        line = fp.readline()
-
-        total = long(0)
-        while line:
-            total += long(line)
-            line = fp.readline()
-        return total
+def puzzle_one(input):
+    total = long(0)
+    for line in input:
+        total += long(line)
+    return total
 
 def puzzle_two(input, total, seen_numbers):
     for x in input:
@@ -20,6 +16,19 @@ def puzzle_two(input, total, seen_numbers):
         seen_numbers.append(total)
 
     return puzzle_two(input, total, seen_numbers)
+
+
+def run_puzzles():
+    input = helpers.InputHelpers.read_input('input1.txt')
+    result1 = puzzle_one(input)
+    print result1
+
+    result2 = puzzle_two(input, 0, [0])
+    print result2
+
+
+if __name__ == '__main__':
+    run_puzzles()
 
 class Test_1(unittest.TestCase):
 
